@@ -1,10 +1,10 @@
-import { Rings } from 'react-loader-spinner';
-import styles from './Loader.module.scss';
+import { Box } from 'components/Box/Box';
+import { TailSpin } from 'react-loader-spinner';
 
-export function Loader() {
+export const Loader = () => {
   return (
-    <div className={styles.loader}>
-      <Rings height="100" width="100" color="#303f9f" ariaLabel="loading" />
-    </div>
+    <Box width="300px" mx="auto">
+      <TailSpin color="yellow" height={200} width={200} />
+    </Box>
   );
-}
+};

@@ -1,12 +1,15 @@
-import styles from './Button.module.scss';
 import PropTypes from 'prop-types';
-export function Button({ onLoadMoreClick }) {
+import { StyledButton } from './Button.styled';
+
+export const Button = ({ type = 'button', children, onClick }) => {
   return (
-    <button onClick={onLoadMoreClick} className={styles.Button} type="submit">
-      Load More
-    </button>
+    <StyledButton type={type} onClick={onClick}>
+      {children}
+    </StyledButton>
   );
-}
+};
+
 Button.propTypes = {
-  onLoadMoreClick: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

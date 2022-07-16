@@ -100,13 +100,3 @@
 3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
    отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
    скрипта будет указано в чем проблема.
-
-=================================================
-
-nfn - const functionName = (params) => { }
-
-sst→ this.setState({ })
-
-ednf→ export default function functionName(params) { }
-
-rcc - class component
