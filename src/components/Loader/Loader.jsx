@@ -1,10 +1,11 @@
-import { Box } from 'components/Box/Box';
 import { TailSpin } from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import { LoaderStyled } from './Loader.styled';
 
 export const Loader = () => {
   return (
-    <Box width="300px" mx="auto">
-      <TailSpin color="yellow" height={200} width={200} />
-    </Box>
+    <LoaderStyled>
+      <TailSpin height="200" width="200" color="yellow" ariaLabel="loading" />
+    </LoaderStyled>
   );
 };

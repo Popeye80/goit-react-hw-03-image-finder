@@ -1,51 +1,36 @@
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
-import { toast } from 'react-toastify';
-import {
-  Input,
-  SearchbarStyle,
-  SearchButton,
-  SearchForm,
-} from './Searchbar.styled';
-import { BiSearch } from 'react-icons/bi';
+import PropTypes from 'prop-types';
 
-const initialValues = {
-  imagesName: '',
-};
+import { HeaderStyled, FormStyled, InputStyled } from './Searchbar.styled';
 
-export const Searchbar = ({ onSearch }) => {
-  const handleSubmit = ({ imagesName }, { resetForm }) => {
-    if (imagesName.trim() === '') {
-      toast.warn('Enter something', {
-        position: 'top-center',
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      resetForm();
-      return;
-    }
-    onSearch(imagesName);
-    resetForm();
-  };
-
+export const Searchbar = ({ onSubmit }) => {
   return (
-    <SearchbarStyle>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <SearchForm>
-          <Input type="text" name="imagesName" />
-          <SearchButton type="submit">
-            <BiSearch size={16} />
-          </SearchButton>
-        </SearchForm>
+    <HeaderStyled className="searchbar">
+      <Formik
+        initialValues={{ name: '' }}
+        onSubmit={values => {
+          onSubmit(values);
+        }}
+      >
+        <FormStyled className="form">
+          <button type="submit" className="button">
+            <span className="button-label">Search</span>
+          </button>
+
+          <InputStyled
+            name="name"
+            className="input"
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search images and photos"
+          />
+        </FormStyled>
       </Formik>
-    </SearchbarStyle>
+    </HeaderStyled>
   );
 };
 
 Searchbar.propTypes = {
-  onSearch: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

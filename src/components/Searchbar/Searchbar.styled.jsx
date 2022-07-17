@@ -1,48 +1,78 @@
 import styled from 'styled-components';
-import { Field, Form } from 'formik';
+import { Form, Field } from 'formik';
 
-export const SearchbarStyle = styled.div`
+export const HeaderStyled = styled.header`
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 1100;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: ${p => p.theme.space[6]}px;
-  padding-right: ${p => p.theme.space[5]}px;
-  padding-left: ${p => p.theme.space[5]}px;
-  padding-top: ${p => p.theme.space[4]}px;
-  padding-bottom: ${p => p.theme.space[4]}px;
-  color: ${p => p.theme.colors.white};
-  background-color: ${p => p.theme.colors.yellow};
-  box-shadow: ${p => p.theme.shadows.boxShadow};
+  min-height: 64px;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #fff;
+  background-color: yellow;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `;
 
-export const SearchButton = styled.button`
-  position: absolute;
-  top: ${p => p.theme.space[0]};
-  right: ${p => p.theme.space[0]};
-  background-color: ${p => p.theme.colors.secondary};
-  border: ${p => p.theme.borders.none};
-  color: ${p => p.theme.colors.white};
-  padding-top: ${p => p.theme.space[3]}px;
-  padding-right: ${p => p.theme.space[4]}px;
-  padding-bottom: ${p => p.theme.space[3]}px;
-  padding-left: ${p => p.theme.space[4]}px;
-  cursor: pointer;
-  border-bottom-right-radius: ${p => p.theme.radii.normal};
-  border-top-right-radius: ${p => p.theme.radii.normal};
+export const FormStyled = styled(Form)`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+
+  button {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    background-image: url(https://metalvis.ua/images/icon/search.svg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    outline: none;
+
+    :hover {
+      opacity: 1;
+    }
+  }
+
+  span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  }
 `;
 
-export const SearchForm = styled(Form)`
-  position: relative;
-`;
+export const InputStyled = styled(Field)`
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
 
-export const Input = styled(Field)`
-  display: block;
-  width: ${p => p.theme.sizes.input}px;
-  padding-top: ${p => p.theme.space[3]}px;
-  padding-right: ${p => p.theme.space[4]}px;
-  padding-bottom: ${p => p.theme.space[3]}px;
-  padding-left: ${p => p.theme.space[4]}px;
-  color: ${p => p.theme.colors.text};
-  border: ${p => p.theme.borders.none};
-  border-radius: ${p => p.theme.radii.normal};
+  ::placeholder {
+    font: inherit;
+    font-size: 18px;
+  }
 `;
